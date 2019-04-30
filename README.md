@@ -1,0 +1,2 @@
+# TurismoBot
+alias Panduro
