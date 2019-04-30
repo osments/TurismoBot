@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	<!-- las mismas categorías pero teniendo en cuenta que pueden NO introducir los acentos -->
+<!-- contexto de categoría wikipedia -->
+<category>
+    <pattern>HÁBLAME DE ALLI</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>HÁBLAME DE <get name="allí"/></srai></li> <!-- si el valor de la variable "allí" es * (cualquier cosa) llama a la función principal (háblame de), de lo contrario (si no hay valor) entonces salta a la frase "no soy adivina..." -->
+            <li>No soy adivina, dime de qué lugar quieres que te hable</li>
+        </condition>
+    </template>
+</category>
+<!-- contexto de categoría wikipedia -->
+<category>
+    <pattern>HABLAME DE ALLÍ</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>HÁBLAME DE <get name="allí"/></srai></li> <!-- si el valor de la variable "allí" es * (cualquier cosa) llama a la función principal (háblame de), de lo contrario (si no hay valor) entonces salta a la frase "no soy adivina..." -->
+            <li>No soy adivina, dime de qué lugar quieres que te hable</li>
+        </condition>
+    </template>
+</category>
+<!-- contexto de categoría wikipedia -->
+<category>
+    <pattern>HABLAME DE ALLI</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>HÁBLAME DE <get name="allí"/></srai></li> <!-- si el valor de la variable "allí" es * (cualquier cosa) llama a la función principal (háblame de), de lo contrario (si no hay valor) entonces salta a la frase "no soy adivina..." -->
+            <li>No soy adivina, dime de qué lugar quieres que te hable</li>
+        </condition>
+    </template>
+</category>
+
+<category>
+    <pattern>^ INFORMACIÓN DE ALLI</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>HÁBLAME DE <get name="allí"/></srai></li> <!-- si el valor de la variable "allí" es * (cualquier cosa) llama a la función principal (háblame de), de lo contrario (si no hay valor) entonces salta a la frase "no soy adivina..." -->
+            <li>No soy adivina, dime de qué lugar quieres que te hable</li>
+        </condition>
+    </template>
+</category>
+<category>
+    <pattern>^ INFORMACION DE ALLI</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>HÁBLAME DE <get name="allí"/></srai></li> <!-- si el valor de la variable "allí" es * (cualquier cosa) llama a la función principal (háblame de), de lo contrario (si no hay valor) entonces salta a la frase "no soy adivina..." -->
+            <li>No soy adivina, dime de qué lugar quieres que te hable</li>
+        </condition>
+    </template>
+</category>
+<!-- contexto de categoría GOOGLE MAPS -->
+<category>
+    <pattern>^ MAPA DE ALLI</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>^ MAPA DE <get name="allí"/></srai></li>
+            <li>No se de dónde quieres que te enseñe el mapa, no se leer la mente, el mapa de dónde</li> <!-- no pongo interrogantes porque lo tendría que poner en el siguiente THAT y por lo visto no funciona  -->
+        </condition>
+    </template>
+</category>
+
+<!-- contexto para la categoría de saber el TIEMPO -->
+<category>
+    <pattern>^ TIEMPO ^ ALLI</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>^ TIEMPO ^ EN <get name="allí"/></srai></li>
+            <li>Para saber el tiempo, primero he de conocer el espacio, Ya lo decía Einstein, dime de qué lugar quieres saber el tiempo</li>
+        </condition>
+    </template>
+</category>
+
+<!-- contexto de categoría hoteles -->
+<category>
+    <pattern>^ HOTEL ALLI</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>^ HOTEL EN <get name="allí"/></srai></li>
+            <li>De qué lugar quieres información sobre hoteles</li>
+        </condition>
+    </template>
+</category>
+
+<!-- contexto de categoría viajar a -->
+<category>
+    <pattern>^ VIAJAR ALLI</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>^ VIAJAR A <get name="allí"/></srai></li>
+            <li>No soy adivina, dime a dónde quieres viajar</li>
+        </condition>
+    </template>
+</category>
+<category>
+    <pattern>^ IR ALLI</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>^ VIAJAR A <get name="allí"/></srai></li>
+            <li>No soy adivina, dime a dónde quieres viajar</li>
+        </condition>
+    </template>
+</category>
+
+<!-- contexto de categoría alquilar coche -->
+<category>
+    <pattern>^ COCHE ALLI</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>^ COCHE EN <get name="allí"/></srai></li>
+            <li>No soy adivina, dime dónde quieres alquilar un coche</li>
+        </condition>
+    </template>
+</category>
+
+<!-- contexto de categoría comidas típicas -->
+<category>
+    <pattern>^ COMIDA DE ALLI</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>^ COMIDA ^ DE <get name="allí"/></srai></li>
+            <li>El hambre no te deja hablar bien, te falta decirme el lugar de donde quieres saber la comida</li>
+        </condition>
+    </template>
+</category>
+
+<!-- contexto de categoría eventos en -->
+<category>
+    <pattern>^ EVENTOS DE ALLI</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>^ EVENTOS ^ DE <get name="allí"/></srai></li>
+            <li>Mucha alegría y alboroto, pero necesito saber el lugar remoto</li>
+        </condition>
+    </template>
+</category>
+
+</aiml>

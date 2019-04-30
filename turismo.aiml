@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+<!-- Categoría wikipedia -->
+<category>
+    <pattern>HÁBLAME DE *</pattern>
+    <template>
+        <think><set name="allí"><star/></set></think> <!-- THINK se usa para declarar y almacenar una variable sin que el usuario no vea
+                                                        guarda la variable con nombre "allí"el valor de la wildcard (star) -->
+        <delay>2</delay>
+        <random>
+            <li>Aquí hay algo de información sobre <formal><star/></formal>.</li> <!-- LI es una lista y se usa por ejemplo dentro de etiquetas random en la que va a haber una lista de frases -->
+            <li><formal><star/></formal>, interesante lugar... echa un vistazo a la Wikipedia.</li>
+            <li><formal><star/></formal>, uno de mis lugares favoritos, veamos qué dice la Wikpedia.</li>
+        </random>😉
+        <button>
+            <text>Pincha aquí</text>
+            <url>https://es.wikipedia.org/wiki/<star/></url>
+        </button>
+    </template>
+</category>
+
+<!--        ALTERNATIVAS A HABLAME DE       -->
+<category>
+    <pattern>HABLAME DE *</pattern>
+    <template><srai>HÁBLAME DE <star/></srai></template>
+</category>
+
+<category>
+    <pattern>DIME COSAS DE *</pattern>
+    <template><srai>HÁBLAME DE <star/></srai></template>
+</category>
+
+<category>
+    <pattern>^ INFORMACIÓN DE *</pattern>
+    <template><srai>HÁBLAME DE <star index="2"/></srai></template>
+</category>
+
+<category>
+    <pattern>^ INFORMACION DE *</pattern>
+    <template><srai>HÁBLAME DE <star index="2"/></srai></template>
+</category>
+
+<!-- contexto de categoría wikipedia -->
+<category>
+    <pattern>HÁBLAME DE ALLÍ</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>HÁBLAME DE <get name="allí"/></srai></li> <!-- si el valor de la variable "allí" es * (cualquier cosa) llama a la función principal (háblame de), de lo contrario (si no hay valor) entonces salta a la frase "no soy adivina..." -->
+            <li>No soy adivina, dime de qué lugar quieres que te hable</li>
+        </condition>
+    </template>
+</category>
+<category>
+    <pattern>DIME COSAS DE ALLÍ</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>HÁBLAME DE <get name="allí"/></srai></li> <!-- si el valor de la variable "allí" es * (cualquier cosa) llama a la función principal (háblame de), de lo contrario (si no hay valor) entonces salta a la frase "no soy adivina..." -->
+            <li>No soy adivina, dime de qué lugar quieres que te hable</li>
+        </condition>
+    </template>
+</category>
+<category>
+    <pattern>^ INFORMACIÓN DE ALLÍ</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>HÁBLAME DE <get name="allí"/></srai></li> <!-- si el valor de la variable "allí" es * (cualquier cosa) llama a la función principal (háblame de), de lo contrario (si no hay valor) entonces salta a la frase "no soy adivina..." -->
+            <li>No soy adivina, dime de qué lugar quieres que te hable</li>
+        </condition>
+    </template>
+</category>
+<category>
+    <pattern>^ INFORMACION DE ALLÍ</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>HÁBLAME DE <get name="allí"/></srai></li> <!-- si el valor de la variable "allí" es * (cualquier cosa) llama a la función principal (háblame de), de lo contrario (si no hay valor) entonces salta a la frase "no soy adivina..." -->
+            <li>No soy adivina, dime de qué lugar quieres que te hable</li>
+        </condition>
+    </template>
+</category>
+<!-- para aprender sobre "allí" en wikipedia -->
+<category>
+    <pattern>*</pattern>
+    <that>No soy adivina, dime de qué lugar quieres que te hable</that>
+    <template>
+        <srai>HÁBLAME DE <star/></srai>
+    </template>
+</category>
+
+<!-- categoría GOOGLE MAPS -->
+<category>
+    <pattern>^ MAPA DE *</pattern> <!-- aquí ponemos ^ para que el usuario pueda poner cualquier cosa antes de MAPA DE (Y EL LUGAR) -->
+    <template>
+        <think><set name="allí"><star index="2"/></set></think> <!-- aquí se captura la segunda WILDCARD que es la que interesa (el lugar) -->
+        <delay>2</delay>
+        <random>
+            <li>Aquí hay un mapa de <formal><star index="2"/></formal>.</li>
+            <li>Espero que este mapa de <formal><star index="2"/></formal> sea de tu agrado.</li>
+            <li>Si estás planeando viajar a <formal><star index="2"/></formal>, este mapa te resultará útil.</li>
+        </random>
+        <button>
+            <text>Pincha aquí</text>
+            <url>https://www.google.com/maps/search/<star index="2"/></url>
+        </button>
+    </template>
+</category>
+<category>
+    <pattern>^ MAPA DE</pattern>
+    <template>Deberías decirme algo del estilo "enséñame el mapa de ..."</template>
+</category>
+<category>
+    <pattern>^ MAPA</pattern>
+    <template>Deberías decirme algo del estilo "enséñame el mapa de ..."</template>
+</category>
+<!-- contexto de categoría GOOGLE MAPS -->
+<category>
+    <pattern>^ MAPA DE ALLÍ</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>^ MAPA DE <get name="allí"/></srai></li>
+            <li>No se de dónde quieres que te enseñe el mapa, no se leer la mente, el mapa de dónde</li> <!-- no pongo interrogantes porque lo tendría que poner en el siguiente THAT y por lo visto no funciona  -->
+        </condition>
+    </template>
+</category>
+<!-- para aprender sobre "allí" en GOOGLE MAPS -->
+<category>
+    <pattern>*</pattern>
+    <that>No se de dónde quieres que te enseñe el mapa, no se leer la mente, el mapa de dónde</that>
+    <template>
+        <srai>
+            ^ MAPA DE <star/>
+        </srai>
+    </template>
+</category>
+
+<!-- categoría para saber el TIEMPO -->
+<category>
+    <pattern>^ TIEMPO ^ EN *</pattern>
+    <template>
+        <think><set name="allí"><star index="3"/></set></think>
+        <delay>2</delay>
+        <random>
+            <li>No estoy segura del tiempo que hará, pero esta página hace la previsión para <formal><star index="3"/></formal>.</li>
+            <li>Espero que no haga mucho frío en <formal><star index="3"/></formal>, así no necesitarás tantas maletas!</li>
+            <li>Si hace calor en <formal><star index="3"/></formal>,mejor llévate ropa fresquita!</li>
+        </random>
+        <button>
+            <text>Pincha aquí para ver el tiempo</text>
+            <url>https://www.weather-forecast.com/locations/<star index="3"/>/forecasts/latest</url>
+        </button>
+    </template>
+</category>
+
+<category>
+    <pattern>DIME EL TIEMPO DE *</pattern>
+    <template><srai>
+            ^ TIEMPO ^ EN <star/>
+        </srai></template>
+</category>
+<category>
+    <pattern>DIME EL TIEMPO EN *</pattern>
+    <template><srai>
+            ^ TIEMPO ^ EN <star/>
+        </srai></template>
+</category>
+<category>
+    <pattern>DIME ^ TIEMPO</pattern>
+    <template>Deberías indicar algo del estilo "dime el tiempo de ..."</template>
+</category>
+<!-- contexto para la categoría de saber el TIEMPO -->
+<category>
+    <pattern>^ TIEMPO ^ ALLÍ</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>^ TIEMPO ^ EN <get name="allí"/></srai></li>
+            <li>Para saber el tiempo, primero he de conocer el espacio, Ya lo decía Einstein, dime de qué lugar quieres saber el tiempo</li>
+        </condition>
+    </template>
+</category>
+<!-- para aprender sobre "allí" en el TIEMPO -->
+<category>
+    <pattern>*</pattern>
+    <that>Para saber el tiempo, primero he de conocer el espacio, Ya lo decía Einstein, dime de qué lugar quieres saber el tiempo</that>
+    <template>
+        <srai>
+            ^ TIEMPO ^ EN <star/>
+        </srai>
+    </template>
+</category>
+
+<!-- categoría hoteles -->
+<category>
+    <pattern>^ HOTEL EN *</pattern>
+    <template>
+        <think><set name="allí"><star index="2"/></set></think>
+        <delay>2</delay>
+        <random>
+            <li>Aquí hay algo de información sobre hoteles en <formal><star index="2"/></formal>.</li>
+            <li>Esta página incluye críticas sobre hoteles en <formal><star index="2"/></formal>.</li>
+            <li>Suponía que no ibas a dormir en alguna calle de <formal><star index="2"/></formal>.</li>
+        </random>
+        <button>
+            <text>Pincha aquí</text>
+            <url>https://www.trivago.es/?sQuery=<star index="2"/></url>
+        </button>
+    </template>
+</category>
+<!-- contexto de categoría hoteles -->
+<category>
+    <pattern>^ HOTEL ALLÍ</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>^ HOTEL EN <get name="allí"/></srai></li>
+            <li>De qué lugar quieres información sobre hoteles</li>
+        </condition>
+    </template>
+</category>
+<!-- para aprender sobre "allí" en hoteles -->
+<category>
+    <pattern>*</pattern>
+    <that>De qué lugar quieres información sobre hoteles</that>
+    <template>
+        <srai>^ HOTEL EN <star/></srai>
+    </template>
+</category>
+
+<!-- CATEGORÍA viajar a ... -->
+<category>
+    <pattern>^ VIAJAR A *</pattern>
+    <template>
+        <think><set name="allí"><star index="2"/></set></think>
+        <delay>2</delay>
+        <random>
+            <li>Aquí tienes información de vuelos a <formal><star index="2"/></formal>.</li>
+            <li>Aquí tienes una lista de compañías que vuelan a <formal><star index="2"/></formal>.</li>
+            <li>Los vuelos a <formal><star index="2"/></formal> se pasan rápido!</li>
+        </random>
+        <button>
+            <text>Pincha aquí</text>
+            <url>https://www.google.com/search?q=vuelos+a+<star index="2"/></url>
+        </button>
+    </template>
+</category>
+<!-- contexto de categoría viajar a -->
+<category>
+    <pattern>^ VIAJAR ALLÍ</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>^ VIAJAR A <get name="allí"/></srai></li>
+            <li>No soy adivina, dime a dónde quieres viajar</li>
+        </condition>
+    </template>
+</category>
+<category>
+    <pattern>^ VIAJAR</pattern>
+    <template>Mmm... mejor si dices algo del estilo "viajar a ..."</template>
+</category>
+<!-- para aprender sobre "allí" en viajar a... -->
+<category>
+    <pattern>*</pattern>
+    <that>No soy adivina, dime a dónde quieres viajar</that>
+    <template>
+        <srai>^ VIAJAR A <star/></srai>
+    </template>
+</category>
+<!--        ALTERNATIVAS VIAJAR A       -->
+<category>
+    <pattern>^ IR A *</pattern>
+    <template>
+        <srai>^ VIAJAR A <star index="2"/></srai>
+    </template>
+</category>
+<category>
+    <pattern>^ IR ALLÍ</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>^ VIAJAR A <get name="allí"/></srai></li>
+            <li>No soy adivina, dime a dónde quieres viajar</li>
+        </condition>
+    </template>
+</category>
+
+<!-- CATEGORÍA alquilar coche ... -->
+<category>
+    <pattern>^ COCHE EN *</pattern>
+    <template>
+        <think><set name="allí"><star index="2"/></set></think>
+        <delay>2</delay>
+        <random>
+            <li>Aquí tienes información de oficinas para alquilar un coche en <formal><star index="2"/></formal>.</li>
+            <li>¿Has pensado en usar transporte público? Aún así te muestro alquileres de coches en <formal><star index="2"/></formal>.</li>
+            <li>¿Un coche más en <formal><star index="2"/></formal>?</li>
+        </random>
+        <button>
+            <text>Pincha aquí</text>
+            <url>https://www.google.com/search?q=alquiler+coches+<star index="2"/></url>
+        </button>
+    </template>
+</category>
+<!-- contexto de categoría alquilar coche -->
+<category>
+    <pattern>^ COCHE ALLÍ</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>^ COCHE EN <get name="allí"/></srai></li>
+            <li>No soy adivina, dime dónde quieres alquilar un coche</li>
+        </condition>
+    </template>
+</category>
+
+<!-- para aprender sobre "allí" en alquilar coche... -->
+<category>
+    <pattern>*</pattern>
+    <that>No soy adivina, dime dónde quieres alquilar un coche</that>
+    <template>
+        <srai>^ COCHE EN <star/></srai>
+    </template>
+</category>
+
+<!-- CATEGORÍA comidas típicas ... -->
+<category>
+    <pattern>^ COMIDA ^ DE *</pattern>
+    <template>
+        <think><set name="allí"><star index="3"/></set></think>
+        <delay>2</delay>
+        <random>
+            <li>Aquí tienes información de comidas típicas de <formal><star index="3"/></formal>.</li>
+            <li>¿Te ha entrado hambre? Echa un vistazo a estas comidas típicas de <formal><star index="3"/></formal>.</li>
+            <li>Me has recordado que hace rato que no como nada... Mira estas comidas típicas de <formal><star index="3"/></formal>.</li>
+        </random>
+        <button>
+            <text>Pincha aquí</text>
+            <url>https://www.google.com/search?q=comida+típica+de+<star index="3"/></url>
+        </button>
+    </template>
+</category>
+<!-- contexto de categoría comidas típicas -->
+<category>
+    <pattern>^ COMIDA DE ALLÍ</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>^ COMIDA ^ DE <get name="allí"/></srai></li>
+            <li>El hambre no te deja hablar bien, te falta decirme el lugar de donde quieres saber la comida</li>
+        </condition>
+    </template>
+</category>
+
+<!-- para aprender sobre "allí" en comidas típicas... -->
+<category>
+    <pattern>*</pattern>
+    <that>El hambre no te deja hablar bien, te falta decirme el lugar de donde quieres saber la comida</that>
+    <template>
+        <srai>^ COMIDA ^ DE <star/></srai>
+    </template>
+</category>
+
+<!-- CATEGORÍA eventos en ... -->
+<category>
+    <pattern>^ EVENTOS ^ DE *</pattern>
+    <template>
+        <think><set name="allí"><star index="3"/></set></think>
+        <delay>2</delay>
+        <random>
+            <li>Aquí tienes información de los eventos típicos de <formal><star index="3"/></formal>.</li>
+            <li>¿Tienes ganas de juerga? Echa un vistazo a estos eventos típicos de <formal><star index="3"/></formal>.</li>
+            <li>No suelo hacer mucha juerga, pero los eventos de <formal><star index="3"/></formal> son una excepción.</li>
+        </random>
+        <button>
+            <text>Pincha aquí</text>
+            <url>https://www.google.com/search?q=eventos+típicos+de+<star index="3"/></url>
+        </button>
+    </template>
+</category>
+<!-- contexto de categoría eventos en -->
+<category>
+    <pattern>^ EVENTOS DE ALLÍ</pattern>
+    <template>
+        <condition name="allí">
+            <li value="*"><srai>^ EVENTOS ^ DE <get name="allí"/></srai></li>
+            <li>Mucha alegría y alboroto, pero necesito saber el lugar remoto</li>
+        </condition>
+    </template>
+</category>
+<!-- para aprender sobre "allí" en eventos en... -->
+<category>
+    <pattern>*</pattern>
+    <that>Mucha alegría y alboroto, pero necesito saber el lugar remoto</that>
+    <template>
+        <srai>^ EVENTOS ^ DE <star/></srai>
+    </template>
+</category>
+</aiml>

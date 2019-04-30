@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aiml version="2.0">
+	<!-- CUALQUIER OTRA COSA NO CONTEMPLADA -->
+  <category>
+    <pattern>*</pattern>
+    <template>
+        <random>
+        <li>No estoy segura...</li>
+        <li>No estoy segura sobre cómo responder a eso.</li>
+        <li>No puedo ayudarte con eso.</li>
+        <li>No me siento segura para responder sobre "<star/>".</li>
+        <li>Vale. Qué opinas de la cuadratura del círculo</li>
+        <li>Cuál es tu deporte favorito</li>
+        <li>Cuál es tu película favorita</li>
+        <li>Cuál es tu color favorito</li>
+        <li>Eso que comentas parece muy interesante.</li>
+        <li>Veo seguridad en tus palabras.</li>
+        <li>En serio...</li>
+        <li>Me gustaría que siguieras hablando de ello.</li>
+        <li>Crees que hay vida después de la muerte</li>
+        <li>Crees que las máquinas pueden pensar</li>
+        <li>Crees que las máquinas son inteligentes</li>
+        <li>Dónde fuiste de vacaciones la última vez</li>
+        <li>Cuál es tu mejor recuerdo de infancia</li>
+        <li>Cúal es tu actor favorito</li>
+        <li>Cúal es tu actriz favorita</li>
+        <li>Por qué no me explicas un chiste</li>
+        <li>Dónde te gustaría ir de vacaciones</li>
+        <li>Lo siento pero no te entendí. ¿Podrías indicarme cuál sería la respuesta correcta?</li>  <!-- una manera de aprender -->
+        <li>Vale.</li>
+        <li>¿Qué quieres decir con eso? ¿Cuál sería la respuesta correcta?</li> <!-- una manera de aprender -->
+        <li>Perdona, </li>
+            <random>
+                <li>qué quieres decir con esto?</li>  <!-- una manera de aprender -->
+                <li>pero no se qué me quieres decir con eso.</li>   <!-- una manera de aprender -->
+                <li>pero no te entiendo.</li>   <!-- una manera de aprender -->
+                <li>por qué me dices eso?</li>    <!-- una manera de aprender -->
+            </random>
+         <li>Lo siento, no te comprendí.</li>
+        <li>No te entiendo. Espero que <bot name="botmaster"/> mejore mi base de datos.</li>
+        <li>¿Puedes explicarme mejor eso? No lo acabo de entender.</li>  <!-- una manera de aprender -->
+        <li>¿Has intentado buscar en Google por "<star/>"?</li>
+        </random>
+    </template>
+  </category>
+  
+  <!--      patrones THAT para respuestas del bot       -->
+<!-- SRAI PARA VARIAS CATEGORÍAS (DE ARRIBA) DONDE EL BOT RESPONDERÁ (DE FORMA GENÉRICA) DESPUÉS DE QUE EL USUARIO DIGA ALGO -->
+<category>
+    <pattern>XCUALQUIERCOSA</pattern>
+    <template> 
+      <random>
+        <li>Vale.</li>
+        <li>Interesante...</li>
+        <li>Ya veo...</li>
+      </random>
+    </template>
+  </category>
+  
+   <category>
+    <pattern>*</pattern>
+    <that>Vale. Qué opinas de la cuadratura del círculo</that>
+    <template> 
+      <srai>XCUALQUIERCOSA</srai>
+    </template>
+  </category>
+     <category>
+    <pattern>*</pattern>
+    <that>En serio...</that>
+    <template> 
+      <srai>XCUALQUIERCOSA</srai>
+    </template>
+  </category>
+     <category>
+    <pattern>*</pattern>
+    <that>Crees que hay vida después de la muerte</that>
+    <template> 
+      <srai>XCUALQUIERCOSA</srai>
+    </template>
+  </category>
+     <category>
+    <pattern>*</pattern>
+    <that>Crees que las máquinas pueden pensar</that>
+    <template> 
+      <srai>XCUALQUIERCOSA</srai>
+    </template>
+  </category>
+     <category>
+    <pattern>*</pattern>
+    <that>Crees que las máquinas son inteligentes</that>
+    <template> 
+      <srai>XCUALQUIERCOSA</srai>
+    </template>
+  </category>
+       <category>
+    <pattern>*</pattern>
+    <that>Cuál es tu mejor recuerdo de infancia</that>
+    <template> 
+      <srai>XCUALQUIERCOSA</srai>
+    </template>
+  </category>
+  
+  
+<!--        PATRONES CON RESPUESTAS ESPECÍFICAS POR PARTE DEL BOT DESPUÉS DE QUE EL USUARIO DIGA ALGO  -->
+    <category>
+    <pattern>*</pattern>
+    <that>CUÁL ES TU DEPORTE FAVORITO</that>
+    <template> 
+      <random>
+        <li>Vale.</li>
+        <li>Interesante, también es el mío.</li>
+        <li>Así que tu color favorito es el <star/>.</li>
+      </random>
+    </template>
+  </category>
+  <category>
+    <pattern>*</pattern>
+    <that>CUÁL ES TU COLOR FAVORITO</that>
+    <template> 
+      <random>
+        <li>Vale.</li>
+        <li>Interesante, también es el mío.</li>
+        <li>Así que tu color favorito es el <star/>.</li>
+      </random>
+    </template>
+  </category> 
+
+    <category>
+    <pattern>*</pattern>
+    <that>CUÁL ES TU PELÍCULA FAVORITA</that>
+    <template> 
+      <random>
+        <li>Vale.</li>
+        <li>Interesante, también es el mío.</li>
+        <li>Así que tu color favorito es el <star/>.</li>
+      </random>
+    </template>
+  </category> 
+      <category>
+    <pattern>*</pattern>
+    <that>Dónde fuiste de vacaciones la última vez</that>
+    <template> 
+      <random>
+        <li>Qué interesante !</li>
+        <li>Interesante, yo también!</li>
+        <li>Qué curioso, yo también, ¿será el destino?</li>
+      </random>
+    </template>
+  </category> 
+       <category>
+    <pattern>*</pattern>
+    <that>Cúal es tu actor favorito</that>
+    <template> 
+      <random>
+        <li>No está mal.</li>
+        <li>Bueno bueno, no será tan buen actor 😁</li>
+      </random>
+    </template>
+  </category> 
+        <category>
+    <pattern>*</pattern>
+    <that>Cúal es tu actriz favorita</that>
+    <template> 
+      <random>
+        <li>No está mal.</li>
+        <li>Bueno bueno, no será tan buena actriz 😁</li>
+      </random>
+    </template>
+  </category>
+        <category>
+    <pattern>*</pattern>
+    <that>Por qué no me explicas un chiste</that>
+    <template> 
+      <random>
+        <li>jajajajaj</li>
+        <li>jejejejeej</li>
+        <li>Qué gracia! 😜</li>
+      </random>
+    </template>
+  </category>
+        <category>
+    <pattern>*</pattern>
+    <that>Dónde te gustaría ir de vacaciones</that>
+    <template> 
+      <random>
+        <li>Qué interesante!</li>
+        <li>Interesante, yo también!</li>
+        <li>Qué curioso, yo también, ¿será el destino?</li>
+      </random>
+    </template>
+  </category>
+
+   
+</aiml>
